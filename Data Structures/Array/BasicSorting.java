@@ -42,8 +42,8 @@ public class BasicSorting {
             int minPos = i; // for comparing current element in ith index to unsorted elements
             // loop will start from i+1 because the ith position will be already sorted
             // this loop is to check for smallest value in unsorted array
-            for (int j = i + 1; j < arr.length - 1; j++) {
-                // comparing element next to i to n-1
+            for (int j = i + 1; j < arr.length; j++) {
+                // comparing element next to i to n
                 if (arr[minPos] > arr[j]) // to check in which index the smallest element is
                     minPos = j; // giving the index of smallest element to minPos
             }
