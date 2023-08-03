@@ -34,7 +34,7 @@ public class BasicSorting {
         }
     }
 
-    // Time Complexity O(n^2) but less operations than bubble sort as swapping isin
+    // Time Complexity O(n^2) but less operations than bubble sort as swapping is in
     // outer loop
     public static void selectionSort(int[] arr) {
         // n-1 because once the iteration reaches between last two element we don't need
@@ -62,17 +62,13 @@ public class BasicSorting {
         }
     }
 
-    public static void printArray(int[] arr) {
-        for (int i = 0; i < arr.length; i++)
-            System.out.print(arr[i] + " ");
-    }
-
+    // Time Complexity O(n^2)
     public static void insertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int curr = arr[i]; // temp. storing eg. 4(2nd element)
             int prev = i - 1; // storing index of eg. 1st element(5) in 1st iteration
             // finding out the current pos to insert
-            while (prev >= 0 && arr[prev]/* 5 */ > curr/* 4 */) {
+            while (prev >= 0 && arr[prev]/* 5 */ > curr/* 4 */) { // change > to < for descinding
                 arr[prev + 1] = arr[prev]; // storing 5 to next index i.e. 1
                 prev--; // going back to before element, prev =-1
             }
@@ -84,9 +80,44 @@ public class BasicSorting {
         }
     }
 
+    public static void countingSort(int[] arr) {
+        int largest = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            largest = Math.max(largest, arr[i]);
+        }
+
+        int count[] = new int[largest + 1]; // because we will consider 0 to largest number
+
+        for (int i = 0; i < arr.length; i++) {
+            // when arr[3] = 4; count[4] will increase, count is frequency of how many time
+            // a number is appearing. If arr[0] and arr[1] = 1, than cout[1] = 2. Because 1
+            // is appearing two times.
+            count[arr[i]]++;
+        }
+
+        //arr[8]= 1,4,1,3,2,4,3,7
+        //count[8(as largest=7)] = {0(0),2(1),1(2),2(3),2(4),0(5),0(6),1(7)}
+
+        //sorting
+        int j=0;
+        for(int i=0;i<count.length;i++){
+            while(count[i]>0){ // when i =1, this loop will run two times
+                arr[j] = i; // once it will increse value for arr[0] = 1 and arr[1] = 1
+                j++; // j=0 then j=1 
+                count[i]--;// count[1] = 2 then count[1] =1 then loop will terminate because count[1] = 0
+                // similarly it will work for whole count array
+            }
+        }
+    }
+
+    public static void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++)
+            System.out.print(arr[i] + " ");
+    }
+
     public static void main(String args[]) {
         int[] arr = { 5, 4, 1, 3, 2 };
-        insertionSort(arr);
+        countingSort(arr);
         printArray(arr);
     }
 }
