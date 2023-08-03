@@ -34,7 +34,8 @@ public class BasicSorting {
         }
     }
 
-    // Time Complexity O() for unsorted and O() for sorted
+    // Time Complexity O(n^2) but less operations than bubble sort as swapping isin
+    // outer loop
     public static void selectionSort(int[] arr) {
         // n-1 because once the iteration reaches between last two element we don't need
         // to check for last element as only single element will remain
@@ -50,12 +51,13 @@ public class BasicSorting {
             }
             // swap
             int temp = arr[minPos]; // storing smallest element in temp
-            arr[minPos] = arr[i]; // storing element in ith(5 which is in 0) positon to index 
-            //of smallest element(1 which is in 2). arr in: i=0 =>5 4 1 3 2 i=1 => 1 4 5 3 2
+            arr[minPos] = arr[i]; // storing element in ith(5 which is in 0) positon to index
+            // of smallest element(1 which is in 2). arr in: i=0 =>5 4 1 3 2 i=1 => 1 4 5 3
+            // 2
             arr[i] = temp; // storing smallest element in ith postion
             // now the i will increment and the smallest element is stored in beginning and
             // we will compare the rest of the remaining arr
-            printArray(arr);
+            printArray(arr); // checking how array changes after every step
             System.out.println("");
         }
     }
@@ -65,9 +67,26 @@ public class BasicSorting {
             System.out.print(arr[i] + " ");
     }
 
+    public static void insertionSort(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int curr = arr[i]; // temp. storing eg. 4(2nd element)
+            int prev = i - 1; // storing index of eg. 1st element(5) in 1st iteration
+            // finding out the current pos to insert
+            while (prev >= 0 && arr[prev]/* 5 */ > curr/* 4 */) {
+                arr[prev + 1] = arr[prev]; // storing 5 to next index i.e. 1
+                prev--; // going back to before element, prev =-1
+            }
+            // Insertion
+            arr[prev + 1] = curr; // storing 4 in [-1(prev)+1] 0th position, before 5
+            // checking how array changes after every step
+            printArray(arr);
+            System.out.println("");
+        }
+    }
+
     public static void main(String args[]) {
         int[] arr = { 5, 4, 1, 3, 2 };
-        selectionSort(arr);
+        insertionSort(arr);
         printArray(arr);
     }
 }
