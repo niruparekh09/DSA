@@ -44,6 +44,7 @@ public class BasicSorting {
             // this loop is to check for smallest value in unsorted array
             for (int j = i + 1; j < arr.length; j++) {
                 // comparing element next to i to n
+                // you can do arr[minPos] < arr[j] for decresing order
                 if (arr[minPos] > arr[j]) // to check in which index the smallest element is
                     minPos = j; // giving the index of smallest element to minPos
             }
