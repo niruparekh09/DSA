@@ -78,7 +78,7 @@ public class Matrices {
                 System.out.print(matrix[i][startCol] + " ");
             }
 
-            //updating values of boundaries
+            // updating values of boundaries
             startCol++;
             startRow++;
             endCol--;
@@ -86,16 +86,56 @@ public class Matrices {
         }
     }
 
-    public static void diagonalSum(int [][] matrix){
-        int primarySum=0;
-        for(int i=0;i<matrix.length;i++){
-            for(int j=0;j<matrix.length;j++){
-                if(i==j)
-                primarySum += matrix[i][j];
+    public static void diagonalSum(int[][] matrix) {
+        int n = matrix.length - 1;
+        int primarySum = 0, secondaySum = 0;
+        int diagonalSum = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == j)
+                    primarySum += matrix[i][j];
+                if (i + j == n - 1) {
+                    if (i == j) { // for when n x n where n is odd
+                        continue;
+                    }
+                    secondaySum += matrix[i][j];
+                }
+
             }
         }
 
-        System.out.println(primarySum);
+        diagonalSum = primarySum + secondaySum;
+
+        System.out.println(diagonalSum);
+    }
+
+    public static boolean staircaseSearch(int[][] matrix, int key) {
+        int row = 0, col = matrix[0].length - 1; // top right. Can also be bottom left
+
+        // till pointer reaches bottom left. Can also be vice-versa
+        while (row < matrix.length && col >= 0) {
+            if (matrix[row][col] == key) {
+                System.out.println("Element found at (" + row + "," + col + ")");
+                return true;
+            }
+
+            else if (key < matrix[row][col]) {
+                col--; //left
+            } else {
+                row++; //bottom
+            }
+            /*
+            in case of starting from bottom left of the matrix we can use this condition
+             else if (key < matrix[row][col]) {
+                row--; //top
+            } else {
+                col++; //right
+            }
+             */
+        }
+
+        System.out.println("Element not found");
+        return false;
     }
 
     public static void main(String args[]) {
@@ -103,7 +143,12 @@ public class Matrices {
                 { 5, 6, 7, 8 },
                 { 9, 10, 11, 12 },
                 { 13, 14, 15, 16 } };
-
-        diagonalSum(matrix);
+        int matrix2[][] = { { 0, 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 } };
+        int matrix3[][] = { { 10, 20, 30, 40 },
+                { 15, 25, 35, 45 },
+                { 27, 29, 37, 48 },
+                { 22, 33, 39, 50 } };
+        int key = 33;
+        staircaseSearch(matrix3, key);
     }
 }
