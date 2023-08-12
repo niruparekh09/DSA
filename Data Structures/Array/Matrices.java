@@ -120,17 +120,17 @@ public class Matrices {
             }
 
             else if (key < matrix[row][col]) {
-                col--; //left
+                col--; // left
             } else {
-                row++; //bottom
+                row++; // bottom
             }
             /*
-            in case of starting from bottom left of the matrix we can use this condition
-             else if (key < matrix[row][col]) {
-                row--; //top
-            } else {
-                col++; //right
-            }
+             * in case of starting from bottom left of the matrix we can use this condition
+             * else if (key < matrix[row][col]) {
+             * row--; //top
+             * } else {
+             * col++; //right
+             * }
              */
         }
 
@@ -138,17 +138,54 @@ public class Matrices {
         return false;
     }
 
+    public static void repeatedElement(int[][] matrix, int key) {
+        int n = matrix.length, m = matrix[0].length;
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (matrix[i][j] == key)
+                    count++;
+            }
+        }
+
+        if (count != 0)
+            System.out.println("Element: " + key + " is repeating " + count + " times");
+        else
+            System.out.println("Your element is not present in the matrix");
+    }
+
+    public static void rowSum(int[][]matrix, int rowNum){
+        int n = matrix.length, m = matrix[0].length;
+        int rowSum=0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (i==rowNum-1)
+                    rowSum += matrix[i][j]; 
+            }
+        }
+        System.out.println("Sum of row number "+rowNum+" is: "+rowSum);
+    }
+
+    public static void transpose(int[][]matrix){
+        int n = matrix.length, m = matrix[0].length;
+        int tMatrix[][] = new int[m][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                tMatrix[j][i] = matrix[i][j];
+            }
+        }
+
+        System.out.println("Transpose of given matrix: ");
+        printMatrix(tMatrix);
+    }
+
     public static void main(String args[]) {
-        int matrix[][] = { { 1, 2, 3, 4 },
-                { 5, 6, 7, 8 },
-                { 9, 10, 11, 12 },
-                { 13, 14, 15, 16 } };
-        int matrix2[][] = { { 0, 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 } };
-        int matrix3[][] = { { 10, 20, 30, 40 },
-                { 15, 25, 35, 45 },
-                { 27, 29, 37, 48 },
-                { 22, 33, 39, 50 } };
-        int key = 33;
-        staircaseSearch(matrix3, key);
+        // int matrix[][] = new int[][]
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 } };
+        Scanner sc = new Scanner(System.in);
+        // int rowNum = sc.nextInt();
+        System.out.println("Given Matrix: ");
+        printMatrix(matrix);
+        transpose(matrix);
     }
 }
