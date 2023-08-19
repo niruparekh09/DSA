@@ -23,21 +23,9 @@ public class StringBasic {
          * name = sc.nextLine();
          * System.out.println(name);
          * 
-         * 
-         * // String Functions
-         * //length()
-         * String fullName = "Tony Stark";
-         * System.out.println(fullName.length()); //OP:- 10 space also counts
          */
-
-        // concatination
-        String fName = "Tony";
-        String lName = "Stark";
-        String name = fName + " " + lName;
-        System.out.println(name); // OP:- Tony Stark
-
-        // charAt()
-        // System.out.println(name.charAt(0)); // OP:- prints T
+         
+        String name ="Tony Stark";
         printLetters(name);
 
     }
