@@ -13,6 +13,7 @@ public class StringQuestions {
         return true;
     }
 
+    // String path = "WNEENESENNN"; final coordinates(3,4); Shortest path=5
     public static void shortestPath(String path) {
         double x2 = 0, y2 = 0; // these are final coordinate of destination
         double shortestPath = 0;
@@ -35,11 +36,20 @@ public class StringQuestions {
         System.out.println("Sortest Path is: " + shortestPath);
     }
 
-    public static void main(String args[]) {
-        // Scanner sc = new Scanner(System.in);
-        String path = "WNEENESENNN"; // final coordinates(3,4)
-        // str = sc.nextLine();
-        shortestPath(path);
+    public static void larestString(String[] fruits) {
+        String largest = fruits[0];
+        for (int i = 1; i < fruits.length; i++) {
+            // 0: equal, -ve s1<s2, +ve s1>s2
+            if (largest.compareToIgnoreCase(fruits[i]) < 0) {
+                largest = fruits[i];
+            }
+        }
 
+        System.out.println("Largest string is: " + largest);
+    }
+
+    public static void main(String args[]) {
+        String[] fruits = { "apple", "mango", "banana" };
+        larestString(fruits);
     }
 }
