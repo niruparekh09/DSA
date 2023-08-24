@@ -43,19 +43,25 @@ public class ArrayPractice {
 
     // 217. Contains Duplicate
     public static boolean containsDuplicate(int[] nums) {
-       //Time Complexity O(n^2), Time Limited Exceeded very large array. 
-        // for(int i= 0; i<nums.length;i++){
-        //     for(int j=i+1;j<nums.length;j++){
-        //         if(nums[i]==nums[j]){
-        //             return true;
-        //         }
-        //     } 
-        // }
+       /*Time Complexity O(n^2), Time Limited Exceeded very large array. 
+        for(int i= 0; i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[i]==nums[j]){
+                    return true;
+                }
+            } 
+        }*/ 
+        //Relatively optimised solution, but still takes a lot of memory.
+        Arrays.sort(nums);
+        for(int i=1;i<nums.length;i++){
+            if(nums[i-1]==nums[i])
+            return true;
+        }
         return false;
     }
 
     public static void main(String args[]) {
-        int[] nums = { 1,2,3,4,5};
+        int[] nums = { 1,2,3,4,5,1};
         System.out.println(containsDuplicate(nums));
         // for(int i=0;i<arr.length;i++){
         // System.out.print(arr[i]+" ");
