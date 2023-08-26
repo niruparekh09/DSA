@@ -153,9 +153,18 @@ public class ArrayPractice {
          */
     }
 
+    //268. Missing Number
+    public static int missingNumber(int[] nums) {
+        int sum = (int)(nums.length*(nums.length+1))/2;
+        for(int i=0;i<nums.length;i++){
+            sum -= nums[i];
+        }
+        return sum;
+    }
+
     public static void main(String args[]) {
-        int[] nums = { 1, 3, 5, 6 };
-        System.out.println(searchInsert(nums, 2));
+        int[] nums = { 9,6,4,2,3,5,7,0,1 };
+        System.out.println(missingNumber(nums));
         // for(int i=0;i<arr.length;i++){
         // System.out.print(arr[i]+" ");
         // }
