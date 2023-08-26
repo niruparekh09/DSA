@@ -48,8 +48,63 @@ public class StringQuestions {
         System.out.println("Largest string is: " + largest);
     }
 
+    public static int countLowerCase(String str) {
+        int count = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o'
+                    || str.charAt(i) == 'u')
+                count++;
+        }
+        return count;
+    }
+
+    // My solution, it's correct but O(n^2)
+    public static boolean anagram(String str1, String str2) {
+        for (int i = 0; i < str1.length(); i++) {
+            boolean isPresent = true;
+            for (int j = 0; j < str2.length(); j++) {
+                if (str1.charAt(i) != str2.charAt(j)) {
+                    isPresent = false;
+                } else {
+                    isPresent = true;
+                    break;
+                }
+            }
+            if (isPresent == false) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Shraddha didi soln, more optimised
+    public static boolean isAnagram(String str1, String str2) {
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+
+        if (str1.length() == str2.length()) {
+            char[] str1CharArray = str1.toCharArray();
+            char[] str2CharArray = str2.toCharArray();
+
+            Arrays.sort(str1CharArray);
+            Arrays.sort(str2CharArray);
+
+            boolean result = Arrays.equals(str1CharArray, str2CharArray);
+            if (result)
+                return true;
+            else
+                return false;
+        } else {
+            return false;
+        }
+    }
+
     public static void main(String args[]) {
         String[] fruits = { "apple", "mango", "banana" };
-        larestString(fruits);
+        String str = "Hello World";
+        String str1 = "race", str2 = "care";
+        System.out.println(isAnagram(str1, str2));
+
     }
 }
