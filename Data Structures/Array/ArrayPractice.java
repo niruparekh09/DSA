@@ -141,32 +141,113 @@ public class ArrayPractice {
             }
         }
         return 0;
-        //More optimized solution
-        /* int low = 0, high = A.length-1;
-        while(low<=high){
-            int mid = (low+high)/2;
-            if(A[mid] == target) return mid;
-            else if(A[mid] > target) high = mid-1;
-            else low = mid+1;
-        }
-        return low;
+        // More optimized solution
+        /*
+         * int low = 0, high = A.length-1;
+         * while(low<=high){
+         * int mid = (low+high)/2;
+         * if(A[mid] == target) return mid;
+         * else if(A[mid] > target) high = mid-1;
+         * else low = mid+1;
+         * }
+         * return low;
          */
     }
 
-    //268. Missing Number
+    // 268. Missing Number
     public static int missingNumber(int[] nums) {
-        int sum = (int)(nums.length*(nums.length+1))/2;
-        for(int i=0;i<nums.length;i++){
+        int sum = (int) (nums.length * (nums.length + 1)) / 2;
+        for (int i = 0; i < nums.length; i++) {
             sum -= nums[i];
         }
         return sum;
     }
 
+    // 66. Plus One
+    /*
+     * public static int[] plusOne(int[] digits) {
+     * // This is kind of brute force approach which will only work for small array,
+     * // but once exceeds the limit, even using long would'nt help
+     * 
+     * double sum =0;
+     * for(int i=0;i<digits.length;i++){
+     * sum = (sum * 10 + digits[i]);
+     * }
+     * sum += 1;
+     * int length =(int)(Math.log10(sum)+1);
+     * int arr[] = new int[length];
+     * for(int i=length-1;i>=0;i--){
+     * arr[i] = (int)(sum%10);
+     * sum=sum/10;
+     * }
+     * return arr;
+     * 
+     * int count = 0;
+     * for (int i = 0; i < digits.length ; i++) {
+     * if (digits[i] == 9) {
+     * count++;
+     * }
+     * }
+     * if (count == digits.length) {
+     * int[] newDigit= new int[digits.length+1];
+     * newDigit[0] = 1;
+     * for(int i=1;i<newDigit.length;i++){
+     * newDigit[i] = 0;
+     * }
+     * return newDigit;
+     * } else {
+     * for (int i = digits.length - 1; i >= 0; i--) {
+     * if (digits[i] == 9 && i > 0) {
+     * digits[i] = 0;
+     * digits[i - 1] = digits[i - 1] + 1;
+     * } else if (i == digits.length - 1) {
+     * digits[i] = digits[i] + 1;
+     * }
+     * }
+     * }
+     * return digits;
+     * }
+     */
+
+    public static int[] plusOne(int[] digits) {
+        for (int i = digits.length - 1; i >= 0; i--) {
+            if (digits[i] < 9) {
+                digits[i]++;
+                return digits;
+                // starting from extreme right--> if array[i] is less than 9 means can be added
+                // with 1
+                // i.e. [ 5,8 ]-->[ 5,9 ] or
+                // [ 9,4 ]-->[ 9,5 ] or
+                // [ 6,0 ]-->[ 6,1 ]
+                // and will directly return array
+            }
+            digits[i] = 0;
+            // if array[i] is not less than 9, means it have to be 9 only then digit is
+            // changed to 0,
+            // and we again revolve around loop to check for number if less than 9 or not
+            // i.e. [ 5,9 ]-->[ 5,0 ]-loop->[ 6,0 ] or
+            // [ 1,9,9 ]-->[ 1,9,0 ]-loop->[ 1,0,0 ]-loop->[ 2,0,0 ]
+            // and will directly return array
+        }
+
+        // if all number inside array are 9
+        // i.e. [ 9,9,9,9 ] than according to above loop it will become [ 0,0,0,0 ]
+        // but we have to make it like this [ 9,9,9,9 ]-->[ 1,0,0,0,0 ]
+
+        // to make like above we need to make new array of length--> n+1
+        // by default new array values are set to -->0 only
+        // thus just changed first value of array to 1 and return the array
+
+        digits = new int[digits.length + 1];
+        digits[0] = 1;
+        return digits;
+    }
+
     public static void main(String args[]) {
-        int[] nums = { 9,6,4,2,3,5,7,0,1 };
-        System.out.println(missingNumber(nums));
-        // for(int i=0;i<arr.length;i++){
-        // System.out.print(arr[i]+" ");
-        // }
+        int[] nums = { 9 };
+        int[] arr = plusOne(nums);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
     }
 }
