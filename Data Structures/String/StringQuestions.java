@@ -100,11 +100,45 @@ public class StringQuestions {
         }
     }
 
+    public static String firstLetterToUpperCase(String str) {
+        StringBuilder sb = new StringBuilder("");
+        char ch = Character.toUpperCase(str.charAt(0));
+        sb.append(ch);
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == ' ' && i < str.length() - 1) {
+                sb.append(str.charAt(i));
+                i++;
+                sb.append(Character.toUpperCase(str.charAt(i)));
+            } else {
+                sb.append(str.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+
+    public static String stringCompression (String str ){
+        StringBuilder newStr = new StringBuilder("");
+        
+        for(int i=0;i<str.length();i++){
+            Integer count = 1; //Because we need to append in new string
+            while(i<str.length()-1 && str.charAt(i) == str.charAt(i+1)){
+                count++;
+                i++;
+            }
+            newStr.append(str.charAt(i));
+            if(count > 1){
+                newStr.append(count.toString());
+            }
+        }
+
+        return newStr.toString();
+    }
+
     public static void main(String args[]) {
         String[] fruits = { "apple", "mango", "banana" };
-        String str = "Hello World";
+        String str = "aaabbbccc";
         String str1 = "race", str2 = "care";
-        System.out.println(isAnagram(str1, str2));
+        System.out.println(stringCompression(str));
 
     }
 }
