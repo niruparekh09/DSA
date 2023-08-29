@@ -90,7 +90,20 @@ public class BitManipBasic {
         return ans;
     }
 
+    public static void swap (int a, int b){
+        a = a^b;
+        b= a^b;
+        a= a^b;
+        System.out.println(a);
+    }
+
+    public static void upToDown(){
+        for(char ch='A'; ch<='Z'; ch++){
+            System.out.print((char)(ch & ' '));
+        }
+    }
+
     public static void main(String args[]) {
-        System.out.println(fastExpo(5, 4));
+        upToDown();
     }
 }
