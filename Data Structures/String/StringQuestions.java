@@ -134,11 +134,17 @@ public class StringQuestions {
         return newStr.toString();
     }
 
+    public static int romanToInt(String str){
+        int number=0;
+        return number;
+    }
+
     public static void main(String args[]) {
         String[] fruits = { "apple", "mango", "banana" };
         String str = "aaabbbccc";
         String str1 = "race", str2 = "care";
-        System.out.println(stringCompression(str));
+        String roman = "MCMXCIV";
+        romanToInt(roman);
 
     }
 }
