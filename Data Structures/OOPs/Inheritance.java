@@ -1,7 +1,11 @@
 public class Inheritance {
-    public static void main(String args[]) {    
-        Fish shark = new Fish();
-        shark.eats(); // Via base class
+    public static void main(String args[]) {
+        /*
+         * //Multilevel Inheritance
+         * Dog dobby = new Dog();
+         * dobby.eats();
+         * dobby.legs = 4;
+         */
     }
 }
 
@@ -18,10 +22,29 @@ class Animal {
     }
 }
 
-class Fish extends Animal {
-    int fins;
-
-    void swim() {
-        System.out.println("Swims in water");
+class Mammal extends Animal {
+    void walks(){
+        System.out.println("Walk");
     }
 }
+
+class Fish extends Animal {
+    void swims(){
+        System.out.println("Swims");
+    }
+}
+
+class Bird extends Animal {
+    void flys(){
+        System.out.println("Flys");
+    }
+}
+
+// Derived Class
+// class Fish extends Animal {
+// int fins;
+
+// void swim() {
+// System.out.println("Swims in water");
+// }
+// }
