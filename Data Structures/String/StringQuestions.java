@@ -134,9 +134,18 @@ public class StringQuestions {
         return newStr.toString();
     }
 
-    public static int romanToInt(String str){
-        int number=0;
-        return number;
+    // 20. Valid Parantheses
+    public static boolean isValid(String s) {
+        int i =0;
+        while(i<s.length()-1){
+            if(s.charAt(i) == s.charAt(i+1)){
+                i += 2;
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String args[]) {
@@ -144,7 +153,7 @@ public class StringQuestions {
         String str = "aaabbbccc";
         String str1 = "race", str2 = "care";
         String roman = "MCMXCIV";
-        romanToInt(roman);
-
+        String parantheses = "(){}[]";
+        isValid(parantheses);
     }
 }
