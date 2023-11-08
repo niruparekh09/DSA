@@ -19,6 +19,13 @@ public class RecursionProblems {
         System.out.print(n + " ");
     }
 
+   /**
+    * The factorial function calculates the factorial of a given number recursively.
+    * 
+    * @param n The parameter "n" in the factorial method represents the number for which we want to
+    * calculate the factorial.
+    * @return The factorial of the given number 'n' is being returned.
+    */
     public static int factorial(int n) {
         int result;
         if (n > 0) {
