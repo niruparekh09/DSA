@@ -148,12 +148,23 @@ public class StringQuestions {
         return true;
     }
 
+    public static int strStr(String haystack, String needle) {
+        Stack<String> hayS = new Stack<>();
+        Stack<String> needleS = new Stack<>();
+        for(int i=0; i<haystack.length();i++){
+            hayS.add(haystack.charAt(i));
+        }
+        return -1;
+    }
+
     public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
         String[] fruits = { "apple", "mango", "banana" };
         String str = "aaabbbccc";
         String str1 = "race", str2 = "care";
         String roman = "MCMXCIV";
         String parantheses = "(){}[]";
         isValid(parantheses);
+        System.out.println(stringCompression(str));
     }
 }
