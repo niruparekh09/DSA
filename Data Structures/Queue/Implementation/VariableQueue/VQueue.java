@@ -44,7 +44,7 @@ public class VQueue {
             return front;
         }
 
-        public static int peek(){
+        public static int peek() {
             if (isEmpty()) {
                 System.out.println("Queue is empty. Cant remove");
                 return -1;

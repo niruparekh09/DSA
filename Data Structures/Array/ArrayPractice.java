@@ -320,11 +320,17 @@ public class ArrayPractice {
         return digitSum;
     }
 
+
+    //228. Summary Ranges
+    public static List<String> summaryRanges(int[] nums) {
+        List<String> list = new ArrayList<>();
+        
+        return list;
+    }
+
     public static void main(String args[]) {
-        int[] nums = { 1,1,5 };
-        nextPermutation(nums);
-        // for (int i = 0; i < arr.length; i++) {
-        // System.out.print(arr[i] + " ");
-        // }
+        int[] nums = {0,2,3,4,6,8,9};
+        List<String> list = summaryRanges(nums);
+        list.forEach(System.out::println);
     }
 }
