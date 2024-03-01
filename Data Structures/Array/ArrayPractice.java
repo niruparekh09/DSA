@@ -284,22 +284,22 @@ public class ArrayPractice {
 
     // 31. Next Permutation
     public static void nextPermutation(int[] nums) {
-        int sum = 0, n=nums.length;
+        int sum = 0, n = nums.length;
         int number = arrayToNumber(nums);
         sum = digitSum(n, number);
         boolean flag = true;
-        while(flag){
+        while (flag) {
             number++;
-            if(digitSum(n, number) == sum){
-                for(int i=n-1;i>=0;i--){
-                    nums[i] = number%10;
-                    number = number/10;
+            if (digitSum(n, number) == sum) {
+                for (int i = n - 1; i >= 0; i--) {
+                    nums[i] = number % 10;
+                    number = number / 10;
                 }
-                flag =false;
+                flag = false;
             }
         }
-        for(int i=0;i<n;i++){
-            System.out.print(nums[i]+", ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(nums[i] + ", ");
         }
     }
 
@@ -311,26 +311,73 @@ public class ArrayPractice {
         return sum;
     }
 
-    public static int digitSum(int arrayLength, int number){
-        int digitSum =0;
-        for(int i=0; i<arrayLength;i++){
-            digitSum += number%10;
-            number = number/10;
+    public static int digitSum(int arrayLength, int number) {
+        int digitSum = 0;
+        for (int i = 0; i < arrayLength; i++) {
+            digitSum += number % 10;
+            number = number / 10;
         }
         return digitSum;
     }
 
-
-    //228. Summary Ranges
+    // 228. Summary Ranges
+    /* Optimized Code
+     *    int length = nums.length;
+    List<String> result = new ArrayList<String>(length);
+    for (int i = 0; i < length; i++) {
+        int num = nums[i];
+        while (i < length - 1 && nums[i] + 1 == nums[i + 1]) {
+            i++;
+        }
+        if (num != nums[i]) {
+            result.add(num + "->" + nums[i]);
+        } else {
+            result.add(num + "");
+        }
+    }
+    return result;
+     */
     public static List<String> summaryRanges(int[] nums) {
         List<String> list = new ArrayList<>();
-        
+        int start = 0;
+        int ptr = 0;
+        if (nums.length == 1) {
+            String str = String.valueOf(nums[0]);
+            list.add(str);
+        }
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == (nums[i - 1] + 1)) {
+                if (ptr == 0) {
+                    start = nums[i - 1];
+                }
+                ptr++;
+            } else {
+                if (ptr == 0) {
+                    String str = String.valueOf(nums[i - 1]);
+                    list.add(str);
+                } else {
+                    String str = String.valueOf(start) + "->" + String.valueOf(nums[i - 1]);
+                    list.add(str);
+                    ptr = 0;
+                }
+            }
+
+            if (i == nums.length - 1 && ptr != 0) {
+                String str = String.valueOf(start) + "->" + String.valueOf(nums[i]);
+                list.add(str);
+            }
+
+            if (i == nums.length - 1 && ptr == 0) {
+                String str = String.valueOf(nums[i]);
+                list.add(str);
+            }
+        }
         return list;
     }
 
     public static void main(String args[]) {
-        int[] nums = {0,2,3,4,6,8,9};
+        int[] nums = { 0, 2, 3, 4, 6, 8, 9 };
         List<String> list = summaryRanges(nums);
-        list.forEach(System.out::println);
+        list.forEach(System.out::print);
     }
 }

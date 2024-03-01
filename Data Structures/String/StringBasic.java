@@ -24,8 +24,8 @@ public class StringBasic {
          * System.out.println(name);
          * 
          */
-         
-        String name ="Tony Stark";
+
+        String name = "Tony Stark";
         printLetters(name);
 
     }
