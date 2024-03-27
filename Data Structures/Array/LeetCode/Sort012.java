@@ -9,7 +9,6 @@ public class Sort012 {
             System.out.print(num);
         }
     }
-
     public static void main(String[] args) {
         sort012(new int[] { 0, 2,1,2,0}, 5);
     }
