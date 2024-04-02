@@ -6,6 +6,11 @@
       <sourceFolder url="file://$MODULE_DIR$/Array" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Bit Manipulation" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/String" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SearchingNSorting" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Recursion" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Queue" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Linked List" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Stacks" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
