@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class BasicSorting {
 
     // Time Complexity O(n^2) for unsorted and O(n) for sorted

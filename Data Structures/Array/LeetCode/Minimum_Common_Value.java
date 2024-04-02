@@ -1,6 +1,5 @@
 package LeetCode;
 
-import java.util.Arrays;
 import java.util.HashSet;
 
 public class Minimum_Common_Value {

@@ -5,9 +5,9 @@ public class ReverseInt {
         int result = 0;
         int temp = x;
         System.out.println(Integer.MIN_VALUE + "-------------------" + Integer.MAX_VALUE);
-        if (x < - || x>Integer.MAX_VAL U E){ 
-            return 0;
-        }
+//        if (x < - || x>Integer.MAX_VAL U E){
+//            return 0;
+//        }
         while (temp != 0) {
             int pop = temp % 10;
             result = result * 10 + pop;

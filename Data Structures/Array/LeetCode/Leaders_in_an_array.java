@@ -1,7 +1,6 @@
 package LeetCode;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Leaders_in_an_array

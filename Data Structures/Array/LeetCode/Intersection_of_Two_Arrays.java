@@ -1,6 +1,5 @@
 package LeetCode;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Intersection_of_Two_Arrays {

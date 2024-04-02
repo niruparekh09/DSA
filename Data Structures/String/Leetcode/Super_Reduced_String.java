@@ -1,8 +1,5 @@
 package Leetcode;
 
-import java.util.HashMap;
-import java.util.HashSet;
-
 public class Super_Reduced_String {
 
     public static String superReducedString(String s) {

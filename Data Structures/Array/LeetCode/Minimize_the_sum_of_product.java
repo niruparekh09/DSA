@@ -1,7 +1,6 @@
 package LeetCode;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class Minimize_the_sum_of_product {
     private static void reverseArray(long[] arr) {

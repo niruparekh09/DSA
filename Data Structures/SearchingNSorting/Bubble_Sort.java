@@ -1,4 +1,4 @@
-package Searching_and_Sorting;
+package SearchingNSorting;
 
 public class Bubble_Sort {
     public static void sort(int[] arr) {

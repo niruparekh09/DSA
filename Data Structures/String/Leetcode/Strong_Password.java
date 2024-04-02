@@ -1,8 +1,5 @@
 package Leetcode;
 
-import java.util.Collections;
-import java.util.HashSet;
-
 public class Strong_Password {
     public static int minimumNumber(int n, String password) {
         int count = 0;

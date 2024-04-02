@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class JavaPatterns2 {
 
     public static void hollow_rectangle(int totRows, int totCols) {

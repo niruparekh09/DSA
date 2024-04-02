@@ -1,6 +1,5 @@
 package Leetcode;
 
-import java.util.Collections;
 import java.util.LinkedHashSet;
 
 public class Remove_Duplicates {

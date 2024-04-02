@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class ArrayOperations {
 
     public static int buyNSellStock(int[] prices) { // My approach
@@ -26,8 +24,8 @@ public class ArrayOperations {
         }
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         int[] prices = { 7, 1, 5, 3, 6, 4 };
-        System.out.println(buyAndSellStock(prices));
+        System.out.println(buyNSellStock(prices));
     }
 }

@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class StringBasic {
     public static void printLetters(String name) {
         for (int i = 0; i < name.length(); i++) {

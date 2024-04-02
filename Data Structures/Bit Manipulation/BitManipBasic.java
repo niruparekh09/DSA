@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class BitManipBasic {
 
     public static void oddOrEven(int n) {

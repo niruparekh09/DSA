@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class BitManipQuestions {
 
     // 338. Counting Bits

@@ -1,5 +1,7 @@
 package Leetcode;
-import java.util.*;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Longest_Common_Prefix_14 {
     public static String longestCommonPrefix(String[] strs) {

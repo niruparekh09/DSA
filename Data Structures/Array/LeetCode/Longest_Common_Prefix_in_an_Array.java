@@ -2,8 +2,6 @@ package LeetCode;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.TreeMap;
 
 public class Longest_Common_Prefix_in_an_Array {
 
