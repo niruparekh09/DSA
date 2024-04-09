@@ -1,4 +1,4 @@
-package SearchingNSorting;
+package Sorting;
 
 import java.util.Arrays;
 
