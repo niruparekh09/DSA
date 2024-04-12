@@ -1,46 +1,25 @@
 package Leetcode;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Arrays;
 
 public class Longest_Common_Prefix_14 {
     public static String longestCommonPrefix(String[] strs) {
-        StringBuilder sb = new StringBuilder("");
-        Queue<Character> strQueue = new LinkedList<>();
-        int counter = 0, sizer = 1;
-        boolean exit = false;
-        if (strs.length > 0) {
-            while (!exit) {
-                for (int index = 0; index < strs.length; index++) {
-                    if (sizer == strs[index].length()) {
-                        exit = true;
-                        break;
-                    }
-                    strQueue.add(strs[index].charAt(counter));
-                }
-                counter++;
-                sizer++;
-            }
-            counter = 0;
-            sizer = 0;
-            char start = strs[0].charAt(counter);
-            while (!strQueue.isEmpty()) {
-                char s = strQueue.remove();
-                if (s == start) {
-                    sizer++;
-                }
-                if (sizer == strs.length) {
-                    sb.append(start);
-                    start = strQueue.peek();
-                    sizer = 0;
-                }
+        Arrays.sort(strs);
+        String s1 = strs[0];
+        String s2 = strs[strs.length-1];
+        int idx = 0;
+        while(idx < s1.length() && idx < s2.length()){
+            if(s1.charAt(idx) == s2.charAt(idx)){
+                idx++;
+            } else {
+                break;
             }
         }
-        return sb.toString();
+        return s1.substring(0, idx);
     }
 
     public static void main(String[] args) {
-        String[] list = { "flower", "flow", "flight" };
+        String[] list = {"flower", "flow", "flight"};
         String str = longestCommonPrefix(list);
         System.out.println(str);
     }
