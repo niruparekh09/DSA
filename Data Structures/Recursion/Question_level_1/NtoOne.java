@@ -1,4 +1,4 @@
-package Question_1;
+package Question_level_1;
 
 public class NtoOne {
 

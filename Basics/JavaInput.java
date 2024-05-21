@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class javaInput {
+public class JavaInput {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input cost of pen");
